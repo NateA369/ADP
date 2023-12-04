@@ -1,0 +1,226 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "ISO_A3": "BRA",
+          "Year": 2001,
+          "Metric1": 2746361.55670610413564286,
+          "Metric2": 1181142068.97202116881165968
+        },
+        "geometry": null
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "ISO_A3": "BRA",
+          "Year": 2002,
+          "Metric1": 3507049.44035898258632208,
+          "Metric2": 1608928884.2595666207324151
+        },
+        "geometry": null
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "ISO_A3": "BRA",
+          "Year": 2003,
+          "Metric1": 3248526.73442800787408048,
+          "Metric2": 1477287781.5648425088906574
+        },
+        "geometry": null
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "ISO_A3": "BRA",
+          "Year": 2004,
+          "Metric1": 3848770.78970870076129346,
+          "Metric2": 1879012460.5361616921385962
+        },
+        "geometry": null
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "ISO_A3": "BRA",
+          "Year": 2005,
+          "Metric1": 3486562.70549620461740643,
+          "Metric2": 1808841462.2001898453314924
+        },
+        "geometry": null
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "ISO_A3": "BRA",
+          "Year": 2006,
+          "Metric1": 2876804.74696718651036248,
+          "Metric2": 1458725211.144252693040841
+        },
+        "geometry": null
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "ISO_A3": "BRA",
+          "Year": 2007,
+          "Metric1": 2621820.17792643804288145,
+          "Metric2": 1273868947.623698110681427
+        },
+        "geometry": null
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "ISO_A3": "BRA",
+          "Year": 2008,
+          "Metric1": 2444308.03831688280100494,
+          "Metric2": 1241442163.8744582148618595
+        },
+        "geometry": null
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "ISO_A3": "BRA",
+          "Year": 2009,
+          "Metric1": 1817901.23275872048572535,
+          "Metric2": 941038553.323674532824465
+        },
+        "geometry": null
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "ISO_A3": "BRA",
+          "Year": 2010,
+          "Metric1": 2688896.17626596926073320,
+          "Metric2": 1386011788.539348244686200
+        },
+        "geometry": null
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "ISO_A3": "BRA",
+          "Year": 2011,
+          "Metric1": 1923363.69454661795042404,
+          "Metric2": 1035926451.0162017052171286
+        },
+        "geometry": null
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "ISO_A3": "BRA",
+          "Year": 2012,
+          "Metric1": 2918633.14102396325529346,
+          "Metric2": 1518361416.486919110891607
+        },
+        "geometry": null
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "ISO_A3": "BRA",
+          "Year": 2013,
+          "Metric1": 1945506.25269363381075194,
+          "Metric2": 1013760088.004257017728499
+        },
+        "geometry": null
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "ISO_A3": "BRA",
+          "Year": 2014,
+          "Metric1": 2693134.29548953124661579,
+          "Metric2": 1465520148.138277128615614
+        },
+        "geometry": null
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "ISO_A3": "BRA",
+          "Year": 2015,
+          "Metric1": 2222772.41753093384148173,
+          "Metric2": 1317035576.529650120754640
+        },
+        "geometry": null
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "ISO_A3": "BRA",
+          "Year": 2016,
+          "Metric1": 5378844.03454082114359639,
+          "Metric2": 3270385815.427100770359826
+        },
+        "geometry": null
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "ISO_A3": "BRA",
+          "Year": 2017,
+          "Metric1": 4519833.17143370305075413,
+          "Metric2": 2662921169.832147920599169
+        },
+        "geometry": null
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "ISO_A3": "BRA",
+          "Year": 2018,
+          "Metric1": 2948462.08026938042667580,
+          "Metric2": 1852394340.418273278303684
+        },
+        "geometry": null
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "ISO_A3": "BRA",
+          "Year": 2019,
+          "Metric1": 2696748.79925482539675521,
+          "Metric2": 1609668381.405732265580347
+        },
+        "geometry": null
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "ISO_A3": "BRA",
+          "Year": 2020,
+          "Metric1": 3291391.78652611725424161,
+          "Metric2": 1898283118.290794839641930
+        },
+        "geometry": null
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "ISO_A3": "BRA",
+          "Year": 2021,
+          "Metric1": 2991909.30595056159354579,
+          "Metric2": 2007751400.988824375447843
+        },
+        "geometry": null
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "ISO_A3": "BRA",
+          "Year": 2022,
+          "Metric1": 3308930.39154352748676770,
+          "Metric2": 2225994867.186358904255686
+        },
+        "geometry": null
+      }
+    ]
+  }
+  

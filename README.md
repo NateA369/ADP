@@ -10,7 +10,7 @@ The goal of this project is to visualize and analyze the changes in tree cover l
 
 ## Application URL
 
-The live web GIS application can be accessed 
+The live web GIS application can be accessed https://natea369.github.io/ADP/
 
 ## Main Functions
 

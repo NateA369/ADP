@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Brazil Tree Cover Loss</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.js"></script>
+    <style>
+        body { margin: 0; padding: 0; }
+        #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+    </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoibmF0ZWEzNjkiLCJhIjoiY2xvejhldmUxMDltdDMybXB6ZGNwdXh0MSJ9.dhamz50QtURIQ_BhPS78aw';
+
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/outdoors-v11',
+    center: [-55, -10],
+    zoom: 2
+});
+
+// thematic layer(s) using the GeoJSON data
+map.on('load', function () {
+    map.addSource('thematic-data', {
+        type: 'geojson',
+        data: 'amazonDeforestation.geoJSON'
+    });
+
+    map.addLayer({
+        id: 'thematic-layer',
+        type: 'fill',
+        source: 'thematic-data',
+        paint: {
+            'fill-color': '#ff0000',
+            'fill-opacity': 0.7
+        }
+    });
+
+    
+});
+</script>
+
+</body>
+</html>

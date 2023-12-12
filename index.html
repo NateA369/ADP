@@ -10,107 +10,129 @@
         body { margin: 0; padding: 0; }
         #map { position: absolute; top: 0; bottom: 0; width: 100%; }
 
-        /* Add a black border around Brazil */
-        #thematic-layer {
-            line-opacity: 1;
-            line-width: 2;
-            line-color: #000;
+        #legend {
+            position: absolute;
+            bottom: 30px;
+            left: 10px;
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1;
+        }
+
+        #sidebar {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1;
+            max-height: 80vh;
+            overflow: auto;
         }
 
         #data-table {
-            font-family: Arial, sans-serif;
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: rgba(255, 255, 255, 0.8);
-            border-style: solid;
-            border-width: 1px;
-            border-color: rgba(0, 0, 0, 0.2);
-            padding: 10px;
-            border-radius: 3px;
-            z-index: 1;
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        #data-table th, #data-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        #data-table th {
+            background-color: #f2f2f2;
         }
     </style>
 </head>
 <body>
 
 <div id="map"></div>
-<div id="data-table">
+<div id="legend">Legend: Tree Cover Loss (ha)</div>
+<div id="sidebar">
     <h2>Amazon Tree Cover Loss (2001-2022)</h2>
-    <table>
+    <table id="data-table">
         <thead>
             <tr>
                 <th>Year</th>
-                <th>Metric1 (Tree Cover Loss)</th>
-                <th>Metric2 (CO2 Equivalent)</th>
+                <th>Tree Cover Loss</th>
+                <th>CO2 Equivalent</th>
             </tr>
         </thead>
-        <tbody></tbody>
+        <tbody id="table-body"></tbody>
     </table>
 </div>
 
 <script>
-    mapboxgl.accessToken = 'pk.eyJ1IjoibmF0ZWEzNjkiLCJhIjoiY2xvejhldmUxMDltdDMybXB6ZGNwdXh0MSJ9.dhamz50QtURIQ_BhPS78aw';
+mapboxgl.accessToken = 'pk.eyJ1IjoibmF0ZWEzNjkiLCJhIjoiY2xvejhldmUxMDltdDMybXB6ZGNwdXh0MSJ9.dhamz50QtURIQ_BhPS78aw';
 
-    var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/satellite-v9',
-        center: [-55, -10],
-        zoom: 2
-    });
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/light-v10',
+    center: [-55, -10],
+    zoom: 2
+});
 
-    // Thematic layer using the GeoJSON data
-    map.on('load', function () {
-        // Fetch the GeoJSON data
-        fetch('amazonD.geoJSON')
-            .then(response => response.json())
-            .then(data => {
-                // Add the GeoJSON data as a source
-                map.addSource('thematic-data', {
-                    type: 'geojson',
-                    data: data
-                });
-
-                // Add the fill layer
-                map.addLayer({
-                    id: 'thematic-layer',
-                    type: 'fill',
-                    source: 'thematic-data',
-                    paint: {
-                        'fill-color': '#ff0000',
-                        'fill-opacity': [
-                            'interpolate',
-                            ['linear'],
-                            ['get', 'Metric1'],
-                            0, 0, // Minimum Metric1 value, 0 opacity
-                            6000000, 1 // Maximum Metric1 value, full opacity
-                        ]
-                    }
-                });
-
-                // Populate the table with data
-                populateTable(data.features);
-            })
-            .catch(error => {
-                console.error('Error fetching GeoJSON data:', error);
+// Thematic layer using the GeoJSON data
+map.on('load', function () {
+    // Fetch the GeoJSON data
+    fetch('amazonD.geoJSON')
+        .then(response => response.json())
+        .then(data => {
+            // Add the GeoJSON data as a source
+            map.addSource('thematic-data', {
+                type: 'geojson',
+                data: data
             });
-    });
 
-    // Function to populate the table with GeoJSON data
-    function populateTable(features) {
-        var tableBody = document.querySelector('#data-table tbody');
+            // Add the fill layer
+            map.addLayer({
+                id: 'thematic-layer',
+                type: 'fill',
+                source: 'thematic-data',
+                paint: {
+                    'fill-color': '#ff0000',
+                    'fill-opacity': [
+                        'interpolate',
+                        ['linear'],
+                        ['get', 'Metric1'],
+                        0, 0, // Minimum Metric1 value, 0 opacity
+                        6000000, 1 // Maximum Metric1 value, full opacity
+                    ]
+                }
+            });
 
-        features.forEach(feature => {
-            var row = tableBody.insertRow();
-            var yearCell = row.insertCell(0);
-            var metric1Cell = row.insertCell(1);
-            var metric2Cell = row.insertCell(2);
-
-            yearCell.textContent = feature.properties.Year;
-            metric1Cell.textContent = feature.properties.Metric1.toFixed(2); // Limit decimal places
-            metric2Cell.textContent = feature.properties.Metric2.toFixed(2); // Limit decimal places
+            // Populate the table with data
+            populateTable(data.features);
+        })
+        .catch(error => {
+            console.error('Error fetching GeoJSON data:', error);
         });
-    }
+});
+
+// Function to populate the table with data
+function populateTable(features) {
+    const tableBody = document.getElementById('table-body');
+
+    features.forEach(feature => {
+        const properties = feature.properties;
+        const row = tableBody.insertRow();
+
+        // Add cells to the row
+        const yearCell = row.insertCell(0);
+        const metric1Cell = row.insertCell(1);
+        const metric2Cell = row.insertCell(2);
+
+        // Populate cell data
+        yearCell.textContent = properties.Year;
+        metric1Cell.textContent = properties.Metric1;
+        metric2Cell.textContent = properties.Metric2;
+    });
+}
 </script>
 
 </body>

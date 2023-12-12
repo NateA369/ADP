@@ -12,10 +12,6 @@ The goal of this project is to visualize and analyze the changes in tree cover l
 
 The live web GIS application can be accessed 
 
-## Screenshots
-
-
-
 ## Main Functions
 
 1. **Interactive Map:** The map displays the tree cover loss in the Amazon with a sliding scale that adjusts the opacity based on the Metric1 values.
